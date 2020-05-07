@@ -5,6 +5,7 @@
       type="line"
       v-bind:options="options"
       v-bind:series="series"
+
     ></apexchart>
   </div>
 </template>
@@ -17,11 +18,7 @@ Vue.component("apexchart", VueApexCharts);
 export default {
   name: "Graph",
   props:['options','series'],
-  methods:{
-      addValue(){
- this.series.data=[...this.series.data,this.value];
-      }
-  }
+
 };
 </script>
 

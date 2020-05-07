@@ -1,23 +1,20 @@
 <template>
   <div>
-
-
-    <input v-model="value" type="number" />
-    <button @click="$emit('add-val',value)" type="submit">Add</button>
-
+    <input placeholder="Add Number" v-model="value" type="number" />
+    <button @click="$emit('add-val', value)">Add</button>
   </div>
 </template>
 <script>
 export default {
   name: "Input",
-  props: ["value"],
+  data() {
+    return { value: "" };
+  },
   methods: {
     handleChange() {
       console.log(this.value);
     },
-
   },
-
 };
 </script>
 <style scoped>
