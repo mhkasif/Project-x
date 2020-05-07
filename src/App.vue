@@ -1,19 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProjectHeading />
+    <Input v-bind:value="value" v-on:add-val='handleSubmit' />
+    <Graph v-bind:options="options" v-bind:series="series" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ProjectHeading from "./components/ProjectHeading";
+import Input from "./components/Input";
+import Graph from "./components/Graph";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ProjectHeading,
+    Input,
+    Graph,
+  },
+  options: {
+    chart: {
+      id: "vuechart-example",
+    },
+    xaxis: {
+      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+    },
+  },
+  series: [
+    {
+      name: "series-1",
+      data: [30, 40, 45, 50, 49, 60, 70, 91],
+    },
+  ],
+  value: "",
+   handleSubmit(e){
+        e.preventDefault()
+        console.log(this.value)
+    }
+};
 </script>
 
 <style>
