@@ -25,7 +25,8 @@ export default {
 <style scoped>
 #graph {
   width: 100vw;
-  height: 100vh;
+  margin-top: 60px;
+
 
   display: flex;
   justify-content: center;

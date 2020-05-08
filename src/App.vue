@@ -25,7 +25,7 @@ export default {
         // },
         stroke: {
           width: 1,
-          curve:'smooth'
+          curve: "smooth",
         },
         xaxis: {
           categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
@@ -34,28 +34,43 @@ export default {
       series: [
         {
           type: "line",
-          data: [0, 180, 0,-180,0, 180, 0,-180],
+          data: [],
         },
       ],
     };
   },
+  mounted: function() {
+    setInterval(() => {
+      let arr=[];
+      for (var i = 0; i < 8; i++) {
+        arr.push(Math.floor(Math.random() * 101));
+      }
+      this.series =  [{ type: "line", data: arr }]
+    }, 500);
+  },
   methods: {
     handleSubmit(val) {
       // const num = Number(val);
-      this.options = {...this.options,stroke:{...this.options.stroke,width:val}}
-      console.log(val, this.options.stroke.width);
+      this.options = {
+        ...this.options,
+        stroke: { ...this.options.stroke, width: val },
+      };
     },
   },
 };
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
 }
 </style>
